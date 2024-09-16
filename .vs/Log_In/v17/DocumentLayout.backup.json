@@ -1,0 +1,111 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\kiril\\source\\repos\\Log_In\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Verwaltung.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|solutionrelative:Log_In\\Verwaltung.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Verwaltung.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|solutionrelative:Log_In\\Verwaltung.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|solutionrelative:Log_In\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Account.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|solutionrelative:Log_In\\Account.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Account.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{39405BC3-76B3-43F6-A0A8-B3AFA43351C9}|Log_In\\Log_In.vcxproj|solutionrelative:Log_In\\Account.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 258,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Account.hpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Account.hpp",
+              "RelativeDocumentMoniker": "Log_In\\Account.hpp",
+              "ToolTip": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Account.hpp",
+              "RelativeToolTip": "Log_In\\Account.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-16T07:45:49.821Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Verwaltung.hpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Verwaltung.hpp",
+              "RelativeDocumentMoniker": "Log_In\\Verwaltung.hpp",
+              "ToolTip": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Verwaltung.hpp",
+              "RelativeToolTip": "Log_In\\Verwaltung.hpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-09-16T08:04:59.128Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Verwaltung.cpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Verwaltung.cpp",
+              "RelativeDocumentMoniker": "Log_In\\Verwaltung.cpp",
+              "ToolTip": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Verwaltung.cpp*",
+              "RelativeToolTip": "Log_In\\Verwaltung.cpp*",
+              "ViewState": "AgIAADAAAAAAAAAAAAAAAE8AAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-16T08:05:02.721Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Account.cpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Account.cpp",
+              "RelativeDocumentMoniker": "Log_In\\Account.cpp",
+              "ToolTip": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\Account.cpp",
+              "RelativeToolTip": "Log_In\\Account.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-16T07:45:58.258Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "main.cpp",
+              "DocumentMoniker": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\main.cpp",
+              "RelativeDocumentMoniker": "Log_In\\main.cpp",
+              "ToolTip": "C:\\Users\\kiril\\source\\repos\\Log_In\\Log_In\\main.cpp",
+              "RelativeToolTip": "Log_In\\main.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-16T07:41:54.771Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
