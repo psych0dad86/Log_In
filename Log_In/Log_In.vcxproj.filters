@@ -24,12 +24,18 @@
     <ClCompile Include="Verwaltung.cpp">
       <Filter>Quelldateien</Filter>
     </ClCompile>
+    <ClCompile Include="Passwort_Manager.cpp">
+      <Filter>Quelldateien</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
     <ClInclude Include="Verwaltung.hpp">
+      <Filter>Headerdateien</Filter>
+    </ClInclude>
+    <ClInclude Include="Passwort_Manager.hpp">
       <Filter>Headerdateien</Filter>
     </ClInclude>
   </ItemGroup>

@@ -129,10 +129,12 @@
   <ItemGroup>
     <ClCompile Include="Account.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Passwort_Manager.cpp" />
     <ClCompile Include="Verwaltung.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Account.hpp" />
+    <ClInclude Include="Passwort_Manager.hpp" />
     <ClInclude Include="Verwaltung.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
