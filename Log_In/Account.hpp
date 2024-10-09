@@ -10,6 +10,10 @@ public:
 
 	void print_account_details();
 	const std::string& get_email() const;
+	const std::string& get_first_name() const;
+	const std::string& get_last_name() const;
+
+	
 
 
 
@@ -20,8 +24,7 @@ private:
 	std::string _nachname;
 	std::string _e_mail;
 	std::string _file_name;
-	bool _new_account;
-	
+	bool _new_account;	
 
 };
 

@@ -1,12 +1,6 @@
 #pragma once
 #include "Account.hpp"
-#include <vector>
-#include <thread>
-#include <chrono>
-#include <map>
-#include <functional>
-#include <array>
-#include <sstream>
+
 class Verwaltung
 {
 public:
@@ -21,6 +15,11 @@ public:
 
 
 private:
+	void _log_in();
+	bool _log_in_menu(const std::string &email);
+	void _change_first_name(const int& index);
+	void _change_last_name(const int& index);
+	void _change_password(const int& index);
 	void _close();
 	void _register_account();
 	bool _input_string(const std::string string, std::string* eingabe);
@@ -28,6 +27,9 @@ private:
 	void _press_enter();
 	void _load_accounts();
 	bool _account_exists(const std::string* e_mail);
+	void _sleep_2_sec();
+
+	
 	
 
 	std::vector<std::unique_ptr<Account>> _accounts;

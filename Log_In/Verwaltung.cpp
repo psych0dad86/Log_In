@@ -31,6 +31,7 @@ void Verwaltung::print_all_accounts()
 	this->_press_enter();
 }
 
+
 void Verwaltung::_close()
 {
 	_activ = false;
@@ -57,7 +58,7 @@ void Verwaltung::_register_account()
 		{
 			system("cls");
 			printf("Registrierung wurde abgebrochen!\n");
-			std::this_thread::sleep_for(std::chrono::seconds(2));
+			_sleep_2_sec();
 		}
 		else if (eingabe_label[i] == "Passwort: ")
 		{
@@ -72,14 +73,13 @@ void Verwaltung::_register_account()
 	{
 		system("cls");
 		printf("Registrierung wurde abgebrochen!\n");
-		std::this_thread::sleep_for(std::chrono::seconds(2));
+		_sleep_2_sec();
 	}
 	else if (abbruch == false)
 	{
-		std::hash<std::string> hash_fn1, hash_fn2;
-
+		std::hash<std::string> hash_fn;
 		_accounts.push_back(std::make_unique<Account>(vorname, nachname, e_mail, _file_name, true));
-		_passwort_manager.set_new_account(hash_fn1(e_mail), hash_fn2(psw1 + e_mail));
+		_passwort_manager.set_new_account(hash_fn(e_mail + psw1));
 		printf("Registrierung war erfolgreich!\n");
 		this->_press_enter();
 	}
@@ -106,7 +106,7 @@ bool Verwaltung::_input_string(const std::string string, std::string* eingabe)
 	
 		if (string == "E-Mail  : " && (escape == 'j' || escape == 'J'))
 		{
-			// >>>>>>>>>>>>> hier vergleich machen mit Account.
+			
 			if (_account_exists(eingabe) == true)
 			{
 				
@@ -236,6 +236,113 @@ bool Verwaltung::_account_exists(const std::string* e_mail)
 	return false;
 }
 
+void Verwaltung::_sleep_2_sec()
+{
+	std::this_thread::sleep_for(std::chrono::seconds(2));
+}
+
+
+
+
+void Verwaltung::_log_in()
+{
+	system("cls");
+	std::string email, passwort;
+	char escape = 'n';
+	bool close = false;
+
+	do
+	{
+		system("cls");
+		std::cout << "Lot In" << std::endl;
+		std::cout << "E-mail  : ";
+		std::getline(std::cin, email);
+		std::cout << "Passwort: ";
+		std::getline(std::cin, passwort);
+
+		std::hash<std::string> hash_fn;
+		if (_passwort_manager.check_password(hash_fn(email + passwort)))
+		{
+			
+			close = _log_in_menu(email);
+		
+		}
+		else
+		{
+			std::cout << "\nFalsche Eigabe" << std::endl;
+			std::cout << "Noch ein Mal versuchen (j)a, (n)ein: ";
+			std::cin.get(escape);
+			std::cin.ignore();
+		}
+	} while (escape == 'j' && close  == false);
+
+	_sleep_2_sec();
+	
+}
+
+bool Verwaltung::_log_in_menu(const std::string& email)
+{
+	int index = 0;
+	bool menu_activ = true;
+	for (index = 0; index < _accounts.size(); index++)
+	{
+		if (_accounts.at(index)->get_email() == email)
+		{
+			break;
+		}
+	}
+
+	do
+	{
+		system("cls");
+		int eingabe = 0;
+		std::cout << "Sie sind eigelogt " << _accounts.at(index)->get_first_name();
+		std::cout << " " << _accounts.at(index)->get_last_name() << std::endl;
+		std::cout << "(1) Vorname aendern" << std::endl;
+		std::cout << "(2) Nachname aendern" << std::endl;
+		std::cout << "(3) Passwort aendern" << std::endl;
+		std::cout << "(4) Ausloggen" << std::endl;
+
+		std::cin >> eingabe;
+
+		switch (eingabe)
+		{
+		case(1):std::cin.ignore(); _change_first_name(index); break;
+		case(2):std::cin.ignore(); _change_last_name(index); break;
+		case(3):std::cin.ignore(); _change_password(index); break;
+		case(4):std::cin.ignore(); 
+			    std::cout << "Sie sind ausgelogged!" << std::endl;
+			    return true;
+		default: std::cout << "Falsche Eingabe, Bitte noch ein Mal versuchen!" << std::endl;
+			_sleep_2_sec();
+			if (std::cin.fail())
+			{
+				std::cin.clear();
+				std::cin.ignore(); break;
+			}
+		}
+		_sleep_2_sec();
+
+	}while(menu_activ);
+
+	return true;
+}
+
+void Verwaltung::_change_first_name(const int& index)
+{
+	std::cout << "Vorname wurde geaendert" << std::endl;
+}
+
+void Verwaltung::_change_last_name(const int& index)
+{
+	std::cout << "Nachname wurde geaendert" << std::endl;
+}
+
+void Verwaltung::_change_password(const int& index)
+{
+	std::cout << "Passwort wurde geaendert" << std::endl;
+}
+
 
 void Verwaltung::main_menu()
 {
@@ -251,13 +358,19 @@ void Verwaltung::main_menu()
 	
 	switch (eingabe)
 	{
-	case(1): break;
+	case(1):std::cin.ignore(); this->_log_in(); break;
 	case(2):std::cin.ignore(); this->_register_account(); break;
-	case(3):std::cin.ignore(); this->_close(); break;
+	case(3):std::cin.ignore(); this->_close(); return;
 	case(4):std::cin.ignore(); this->print_all_accounts();
-	default: std::cout << "Falsche Eingabe, Bitte noch ein Mal versuchen!" << std::endl; break;
+	default: std::cout << "Falsche Eingabe, Bitte noch ein Mal versuchen!" << std::endl;
+			 _sleep_2_sec();
+
+			 if (std::cin.fail())
+			 {
+			 	std::cin.clear();
+			 	std::cin.ignore(); break;
+			 }
 	}
-
-
+	
 }
 
