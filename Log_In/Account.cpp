@@ -46,6 +46,16 @@ const std::string& Account::get_last_name() const
 	return _nachname;
 }
 
+void Account::set_first_name(const std::string& neuer_wert)
+{
+	_vorname = neuer_wert;
+}
+
+void Account::set_last_name(const std::string& neuer_wert)
+{
+	_nachname = neuer_wert;
+}
+
 void Account::_save_new_account()
 {
 	std::ofstream datei(_file_name, std::ios::app);

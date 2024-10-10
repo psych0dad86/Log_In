@@ -17,6 +17,7 @@ public:
 private:
 	void _log_in();
 	bool _log_in_menu(const std::string &email);
+	void _change_name(const int& index, const std::string& vor_oder_nach_name);
 	void _change_first_name(const int& index);
 	void _change_last_name(const int& index);
 	void _change_password(const int& index);

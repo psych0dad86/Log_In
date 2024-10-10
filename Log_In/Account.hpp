@@ -12,6 +12,8 @@ public:
 	const std::string& get_email() const;
 	const std::string& get_first_name() const;
 	const std::string& get_last_name() const;
+	void set_first_name(const std::string& neuer_wert);
+	void set_last_name(const std::string& neuer_wert);
 
 	
 

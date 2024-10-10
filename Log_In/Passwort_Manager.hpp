@@ -8,6 +8,7 @@
 #include <fstream>
 #include <vector>
 #include <sstream>
+#include <cstdio>
 
 class Passwort_Manager
 {
@@ -15,8 +16,9 @@ public:
 	Passwort_Manager();
 	~Passwort_Manager();
 
-	void set_new_account(const size_t &wert);
+	void set_new_account(const size_t& wert);
 	bool check_password(const size_t& wert);
+	bool update_password(const size_t& alter_hash, const size_t& neuer_hash);
 
 
 private:

@@ -46,6 +46,60 @@ bool Passwort_Manager::check_password(const size_t& wert)
     }
 }
 
+bool Passwort_Manager::update_password(const size_t& alter_hash, const size_t& neuer_hash)
+{
+
+	std::string temp_name = "temp_psw.txt";
+	std::ifstream original_datei(_file_name);
+	std::ofstream temp_datei(temp_name, std::ios::app);
+	
+
+	if (!original_datei)
+	{
+		std::cerr << "Fehler beim oeffnen der original Datei: " << _file_name << std::endl;
+		return false;
+	}
+	if (!temp_datei)
+	{
+		std::cerr << "Fehler beim oeffnen der original Datei: " << temp_name << std::endl;
+		return false;
+	}
+
+	size_t gespeicherter_hash;
+	bool gefunden = false;
+
+	while (original_datei >> gespeicherter_hash)
+	{
+		if (gespeicherter_hash == alter_hash)
+		{
+			temp_datei << neuer_hash << std::endl;
+			gefunden = true;
+			
+		}
+		else
+		{
+			temp_datei << gespeicherter_hash << std::endl;
+		}
+	}
+
+	original_datei.close();
+	temp_datei.close();
+
+	if (gefunden)
+	{
+		std::remove(_file_name.c_str());
+		std::rename(temp_name.c_str(), _file_name.c_str());
+		return true;
+	}
+	else
+	{
+		std::cerr << "Altes Passwort wurde nicht gefunden!" << std::endl;
+		std::remove("temp_psw.txt");
+		return false;
+	}
+	
+}
+
 void Passwort_Manager::_save_in_file(const size_t& wert)
 {
 	std::ofstream datei(_file_name, std::ios::app);

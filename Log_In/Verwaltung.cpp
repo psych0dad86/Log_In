@@ -328,24 +328,133 @@ bool Verwaltung::_log_in_menu(const std::string& email)
 	return true;
 }
 
+void Verwaltung::_change_name(const int& index, const std::string& vor_oder_nach_name)
+{
+	std::string neuer_wert;
+	system("cls");
+	std::cout << "Neuen " << vor_oder_nach_name << " eingeben: ";
+	std::getline(std::cin, neuer_wert);
+
+	std::string temp_file = "temp.txt";
+	std::ifstream original_datei(_file_name);
+	std::ofstream temp_datei(temp_file);
+
+	if (!original_datei)
+	{
+		std::cerr << "Fehler beim oeffnen der original Datei: " << _file_name << std::endl;
+		_sleep_2_sec();
+		return;
+	}
+	if (!temp_datei)
+	{
+		std::cerr << "Fehler beim oeffnen der original Datei: " <<  temp_file << std::endl;
+		_sleep_2_sec();
+		return;
+	}
+
+	std::string zeile;
+	std::string email = _accounts.at(index)->get_email();
+
+	bool gefunden = false;
+
+	while (std::getline(original_datei, zeile))
+	{
+		std::istringstream ss(zeile);
+		std::string vorname, nachname, e_mail;
+
+		if (ss >> vorname >> nachname >> e_mail)
+		{
+			if(e_mail == email)
+			{
+				if (vor_oder_nach_name == "Vorname")
+				{
+					temp_datei << neuer_wert << " " << nachname << " " << e_mail << std::endl;
+					_accounts.at(index)->set_first_name(neuer_wert);
+				}
+				else if (vor_oder_nach_name == "Nachname")
+				{
+					temp_datei << vorname << " " << neuer_wert << " " << e_mail << std::endl;
+					_accounts.at(index)->set_last_name(neuer_wert);
+				}
+				gefunden = true;
+			}
+			else
+			{
+				temp_datei << zeile << std::endl;
+			}
+		}
+	}
+
+	original_datei.close();
+	temp_datei.close();
+
+	if (gefunden)
+	{
+		std::remove(_file_name.c_str());
+		std::rename(temp_file.c_str(), _file_name.c_str());
+		std::cout << vor_oder_nach_name << " wurde erfolgreich geaendert!" << std::endl;
+	}
+	else
+	{
+		std::cerr << email << " wurde nicht gefunden!" << std::endl;
+		std::remove(temp_file.c_str());
+	}
+	_sleep_2_sec();
+}
+
 void Verwaltung::_change_first_name(const int& index)
 {
-	std::cout << "Vorname wurde geaendert" << std::endl;
+	_change_name(index, "Vorname");
 }
 
 void Verwaltung::_change_last_name(const int& index)
 {
-	std::cout << "Nachname wurde geaendert" << std::endl;
+	_change_name(index, "Nachname");
 }
 
 void Verwaltung::_change_password(const int& index)
 {
-	std::cout << "Passwort wurde geaendert" << std::endl;
+	std::string altes_passwort, neues_passwort1, neues_passwort2;
+	std::string email = _accounts.at(index)->get_email();
+	std::hash<std::string> hash_fn;
+
+	system("cls");
+	std::cout << "Altes Passwort eingeben: ";
+	std::getline(std::cin, altes_passwort);
+
+	if (!_passwort_manager.check_password(hash_fn(email + altes_passwort)))
+	{
+		std::cerr << "Das alte Passwort ist falsch!" << std::endl;
+		_sleep_2_sec();
+		return;
+	}
+
+	
+	if (_input_psw("Neues Passwort: ", &neues_passwort1, &neues_passwort2)) {
+		std::cerr << "Passwort-Eingabe wurde abgebrochen." << std::endl;
+		return;
+	}
+
+	size_t neuer_hash = hash_fn(email + neues_passwort1);
+	
+
+	if (_passwort_manager.update_password(hash_fn(email + altes_passwort), neuer_hash))
+	{
+		std::cout << "Passort wurde erfolgreich geaendert!" << std::endl;
+	}
+	else
+	{
+		std::cerr << "Fehler beim Aendern des Passworts." << std::endl;
+	}
+
+	_sleep_2_sec();
+
 }
 
 
 void Verwaltung::main_menu()
 {
+	
 	system("cls");
 	int eingabe = 0;
 	std::cout << "Haupt Menue was moechten sie machen" << std::endl;
@@ -361,7 +470,7 @@ void Verwaltung::main_menu()
 	case(1):std::cin.ignore(); this->_log_in(); break;
 	case(2):std::cin.ignore(); this->_register_account(); break;
 	case(3):std::cin.ignore(); this->_close(); return;
-	case(4):std::cin.ignore(); this->print_all_accounts();
+	case(4):std::cin.ignore(); this->print_all_accounts(); break;
 	default: std::cout << "Falsche Eingabe, Bitte noch ein Mal versuchen!" << std::endl;
 			 _sleep_2_sec();
 
